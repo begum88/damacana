@@ -1,0 +1,22 @@
+﻿@using damacana.Models
+@model List<damacana.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<a href="@Url.Action("AddProduct")">Add New Product</a>
+<hr />
+<a href="@Url.Action("Cart")">for cart</a>
+
+
+@foreach (Product p in Model)
+{
+    <h2>
+        @p.Name (@p.Id)
+    </h2>
+    <p>
+        @p.Price
+    </p>
+    <hr />
+}
