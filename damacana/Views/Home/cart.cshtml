@@ -13,25 +13,25 @@
     <p>
         @p.Price
     </p>
-    <a href="< @Url.Action(@"SepeteEkle")" >
+
+
+
+
+    <div class="btn-group">
         
-        
-
-        <div class="btn-group">
-            <button class="btn btn-default btn-lg dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
-                satın al <span class="caret"></span>
+        <button class="btn btn-default btn-lg dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" onclick="location.href='@Url.Action("SiparisVer", "Home")'">
+            Ekle <span class="caret"></span>
 
 
 
-
-            </button>
-
+        </button>
 
 
-        </div>
-    </a>
+
+    </div>
+    
     <hr />
 }
-<a href="@Url.Action("Index")">
-    Back to mainpage
+<a href="@Url.Action("SepeteEkle")">
+    Sepete Ekle
 </a>

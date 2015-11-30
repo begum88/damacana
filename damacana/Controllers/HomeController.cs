@@ -40,7 +40,7 @@ namespace Damacana.Controllers
 
 
 
-        public ActionResult AddProduct()
+        public ActionResult AddProduct(List<Product> list)
         {
             //Create an Empty Product
             Product product = new Product()
@@ -81,9 +81,10 @@ namespace Damacana.Controllers
             return View();
         }
 
-        public ActionResult SiparisVer()
+        public void SiparisVer()
         {
-            throw new NotImplementedException();
+            AddProduct(products);
+            var list = products;
         }
 
         public ActionResult SepeteEkle()
