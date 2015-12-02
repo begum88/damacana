@@ -81,9 +81,9 @@ namespace damacana.Controllers
         }
         public ActionResult AddProduct()
         {
-            //create an empty product
+            
             Product product = new Product();
-            //products.Add(product);
+            
             return View(product);
 
         }
@@ -158,7 +158,7 @@ namespace damacana.Controllers
         }
         public ActionResult AddtoCart(string name)
         {
-            //   products.Add(product);
+            
             ViewBag.Message = "Your application description page.";
             Product product = new Product();
 
@@ -227,7 +227,6 @@ namespace damacana.Controllers
 
         public ActionResult EditProduct(string name)
         {
-            //   products.Add(product);
             ViewBag.Message = "Your application description page.";
             Product product = new Product();
 
@@ -282,7 +281,7 @@ namespace damacana.Controllers
 
         public ActionResult AddPurchase(int id)
         {
-            //create an empty cart
+           
 
             Purchase purchase = new Purchase();
             {
