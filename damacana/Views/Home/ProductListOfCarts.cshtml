@@ -1,0 +1,47 @@
+﻿@using damacana.Models;
+@model List<damacana.Models.Product>
+@{
+    ViewBag.Title = "ProductListOfCarts";
+}
+
+<body style="background-image: url(http://img0.mxstatic.com/wallpapers/e10be71dcff8d56497a3d30561b6e301_large.jpeg); ">
+    
+
+
+
+    <h2 style="color:white">Cart List</h2>
+    @foreach (var item in Model)
+    {
+        <table style="width:50%">
+
+            <tr>
+                <td>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+
+                                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="http://www.objektifhaber.com/resimler/58000/58829_3.jpg" data-holder-rendered="true" style="width: 145px; height: 110px;">
+                            </a>
+
+                        </div>
+                    </div>
+
+                </td>
+
+                <td>
+                    <h3>Product ID:  @Html.DisplayFor(modelItem => item.Id) </h3>
+                    <h3> Product Name: @Html.DisplayFor(modelItem => item.Name)</h3>
+                    <h3> Product Price: @Html.DisplayFor(modelItem => item.Price)</h3>
+
+                </td>
+                <td>
+
+                    <a href="@Url.Action("DeleteProductfromCart", new { name = item.Name })"> SİL </a>
+                </td>
+
+            </tr>
+        </table>
+    }
+    }
+
+</body>

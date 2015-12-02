@@ -1,0 +1,12 @@
+﻿@using damacana.Models;
+@model List<Product>
+@{
+    ViewBag.Title = "DeleteProduct";
+}
+
+<h2>DeleteProduct</h2>
+
+
+
+<div class=" alert alert-success" role="alert"><b> Ürün Silindi  </b></div>
+Product delected <a href="@Url.Action("ProductList")"> Listeye Dön </a>

@@ -1,0 +1,12 @@
+﻿@model damacana.Models.Cart
+@{
+    ViewBag.Title = "SaveCart";
+}
+<h2>SaveCart</h2>
+
+<body style="background-image: url(http://img0.mxstatic.com/wallpapers/e10be71dcff8d56497a3d30561b6e301_large.jpeg); ">
+    @using (Html.BeginForm("CartList", "Home", FormMethod.Post))
+    {<div class=" alert alert-success" role="alert"> <b> Kaydedildi </b></div>}
+    <a href="@Url.Action("CartList")"> Go to  Cart List </a>
+    <a href="@Url.Action("ProductList")"> Go to  Product List </a>
+</body>

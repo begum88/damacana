@@ -1,7 +1,11 @@
-﻿<div class="alert alert-success" role="alert">
-    Product Added: <b>@Model.Name</b>
-</div>
+﻿@model damacana.Models.Product
+@{
+    ViewBag.Title = "SaveProduct";
+}
 
-<a href="@Url.Action("Index")">
-    Go To List
-</a>
+<h2>SaveProduct</h2>
+
+
+@using (Html.BeginForm("ProductList", "Home", FormMethod.Post))
+{<div class=" alert alert-success" role="alert"> <b> Kaydedildi  </b></div>}
+<a href="@Url.Action("ProductList")"> Go to List</a>

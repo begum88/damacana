@@ -1,0 +1,49 @@
+﻿@using damacana.Models;
+@model List<damacana.Models.Purchase>
+@{
+    ViewBag.Title = "PuchaseList";
+}
+
+<body style="background-image: url(https://wallpaperscraft.com/image/drops_water_white_green_55225_1024x1024.jpg); ">
+
+
+
+
+    <h2 style="color:white">Cart List</h2>
+    @foreach (var item in Model)
+    {
+        <table style="width:50%">
+
+            <tr>
+                <td>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+
+                                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="http://www.objektifhaber.com/resimler/58000/58829_3.jpg" data-holder-rendered="true" style="width: 145px; height: 110px;">
+                            </a>
+
+                        </div>
+                    </div>
+
+                </td>
+
+                <td>
+                    <<p style='font-size:15px; '><b>Purchase ıd : @Html.DisplayFor(modelItem => item.Id)</b> </p>
+                    <p style='font-size:15px;'> Date: @Html.DisplayFor(modelItem => item.CreateDate)</p>
+                    <p style='font-size:15px;'> Total Price: @Html.DisplayFor(modelItem => item.TotalPrice)</p>
+
+                </td>
+                <td>
+
+                    <div class=" alert alert-success" role="alert"> <b> Kaydedildi </b></div>
+
+
+                </td>
+
+            </tr>
+        </table>
+    }
+    }
+
+</body>

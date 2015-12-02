@@ -118,7 +118,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Purchase.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -148,15 +151,27 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\AddProduct.cshtml" />
     <Content Include="Views\Home\SaveProduct.cshtml" />
-    <Content Include="Views\Home\cart.cshtml" />
-    <Content Include="Views\Home\SiparisVer.cshtml" />
-    <Content Include="Views\Home\SepeteEkle.cshtml" />
+    <Content Include="Views\Home\EditCart.cshtml" />
+    <Content Include="Views\Home\SaveCart.cshtml" />
+    <Content Include="Views\Home\AddCart.cshtml" />
+    <Content Include="Views\Home\AddtoCart.cshtml" />
+    <Content Include="Views\Home\AddPurchase.cshtml" />
+    <Content Include="Views\Home\CartList.cshtml" />
+    <Content Include="Views\Home\DeleteCart.cshtml" />
+    <Content Include="Views\Home\DeleteProduct.cshtml" />
+    <Content Include="Views\Home\DeleteProductFromCart.cshtml" />
+    <Content Include="Views\Home\EditProduct.cshtml" />
+    <Content Include="Views\Home\ProductList.cshtml" />
+    <Content Include="Views\Home\ProductListOfCarts.cshtml" />
+    <Content Include="Views\Home\Purchase.cshtml" />
+    <Content Include="Views\Home\SavePurchase.cshtml" />
+    <Content Include="Views\Home\PurchaseList.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

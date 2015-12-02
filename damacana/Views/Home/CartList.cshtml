@@ -1,0 +1,63 @@
+﻿@using damacana.Models;
+@model List<damacana.Models.Cart>
+
+
+@{
+    
+    ViewBag.Title = "CartListt";
+}
+
+<body style="background-image: url(http://img0.mxstatic.com/wallpapers/e10be71dcff8d56497a3d30561b6e301_large.jpeg); ">
+<table style="width: 50%">
+    <tr>
+        <td>
+            <h3 style="color: white"> Cart List </h3>
+            @foreach (Cart p in Model)
+            {
+                @p.Products
+            }
+
+        </td>
+    </tr>
+
+
+</table>
+
+  
+    
+    <h2 style="color:white">Cart List</h2>
+    @foreach (var item in Model)
+    {
+        <table style="width:50%">
+
+            <tr>
+                <td>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                               
+                                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="http://www.uzmantema.com/image/data/uzman/ve_20090516012720.gif" data-holder-rendered="true" style="width: 145px; height: 110px;">
+                            </a>
+
+                        </div>
+                    </div>
+
+                </td>
+
+                <td>
+                    <h3> User ID: @Html.DisplayFor(modelItem => item.UserId)</h3>
+                    <h3><a href="@Url.Action("ProductListOfCarts",new { id = item.Id })"> Go to product list of this cart !!</a></h3>
+                    <h3> <a href="@Url.Action("AddPurchase",new { id = item.Id })"> Buy it now !! !!</a></h3>
+                   
+                </td>
+                <td>
+                 
+                    <a href="@Url.Action("EditCart", new { id = item.Id })"> EDIT </a>| <a href="@Url.Action("DeleteCart", new { id = item.Id })"> DELETE </a>
+</td>
+
+            </tr>
+        </table>
+        }
+    }
+    
+</body>
