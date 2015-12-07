@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using damacana.DAL.Models;
 
 namespace damacana.Models
 {
@@ -9,6 +10,6 @@ namespace damacana.Models
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public List<Product> Products { get; set; }
     }
 }

@@ -1,0 +1,46 @@
+﻿@model damacana.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2>Login</h2>
+            <hr />
+            @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="panel panel-danger">
+                    @Html.ValidationSummary(false)
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3">User Name</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.UserName, new {@class = "form-control"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3">Password</label>
+                    <div class="col-md-9">
+                        @Html.PasswordFor(model => model.Password, new {@class = "form-control"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3">Beni Hatırla @Html.CheckBoxFor(model => model.RememberMe)</label>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="@Url.Action("Register", "Account")" class="btn btn-default pull-left">Kayıt olmak için tıklayınız</a>
+                        <button type="submit" class="btn btn-primary pull-right">Giriş Yap</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

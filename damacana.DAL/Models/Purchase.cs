@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-
-namespace damacana.Models
+namespace damacana.DAL.Models
 {
     public class Purchase
     {
@@ -12,7 +12,5 @@ namespace damacana.Models
         public int UserId { get; set; }
         public DateTime CreateDate { get; set; }
         public decimal TotalPrice { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
-
     }
 }

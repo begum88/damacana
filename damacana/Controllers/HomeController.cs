@@ -5,74 +5,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using damacana.DAL;
+using damacana.DAL.Models;
+using User = damacana.DAL.Models.User;
 
 
 namespace damacana.Controllers
 {
-
+    [Authorize]
     public class HomeController : Controller
     {
-        int z = 3;
-        static List<Product> products = new List<Product>();
-
-        Product product1 = new Product()
-        {
-            Id = 1,
-            Name = "Erikli 19L",
-            Price = (decimal)10.5
-        };
-
-
-        Product product2 = new Product()
-        {
-            Id = 2,
-            Name = "Pınar 19L",
-            Price = (decimal)9.5
-        };
-
-
-
-        static List<Cart> carts = new List<Cart>();
-
-        Cart cart1 = new Cart()
-        {
-            Id = 1,
-            UserId = 1,
-
-        };
-
-        static List<Purchase> purchases = new List<Purchase>();
-
-        Purchase purchase1 = new Purchase()
-        {
-            Id = 1,
-            UserId = 1,
-            CreateDate  = new DateTime(2015, 04, 25, 22, 10, 55),
-            TotalPrice = 26,
-
-        }; 
-        Purchase purchase2 = new Purchase()
-        {
-            Id = 2,
-            UserId = 1,
-            CreateDate = new DateTime(2015, 04, 25, 11, 25, 44),
-            TotalPrice = 45,
-
-        };
+        DamacanaEntities _db = new DamacanaEntities();
         public ActionResult Index()
         {
-
-            purchases.Add(purchase1);
-            purchases.Add(purchase2);
-            products.Add(product1);
-            products.Add(product2);
-            carts.Add(cart1);
-            return View(products);
+            
+            return View();
         }
 
         public ActionResult ProductList()
         {
-            return View(products);
+            return View(_db.Product.ToList());
         }
 
         public ActionResult About()
@@ -81,24 +33,20 @@ namespace damacana.Controllers
         }
         public ActionResult AddProduct()
         {
-            
-            Product product = new Product();
-            
-            return View(product);
-
+            return View();
         }
 
         [HttpPost]
         public ActionResult SaveProduct(Product product)
         {
-
-            products.Add(product);
-            return View(product);
+            
+            //products.Add(product);
+            return View();
         }
 
         public ActionResult CartList()
         {
-            return View(carts);
+            return View();
         }
         public ActionResult AddCart()
         {
@@ -112,49 +60,49 @@ namespace damacana.Controllers
         public ActionResult SaveCart(Cart cart)
         {
 
-            carts.Add(cart);
+            //carts.Add(cart);
             return View(cart);
         }
         public ActionResult EditCart(int id)
         {
             //   products.Add(product);
-            ViewBag.Message = "Your application description page.";
-            Cart cart = new Cart();
+            //ViewBag.Message = "Your application description page.";
+            //Cart cart = new Cart();
 
-            foreach (var find in carts)
-            {
+            //foreach (var find in carts)
+            //{
 
-                if (find.Id == id)
-                {
-
-
-                    cart.UserId = find.UserId;
-
-                    cart.Id = find.Id;
+            //    if (find.Id == id)
+            //    {
 
 
-                    carts.Remove(find);
-                    break;
-                }
+            //        cart.UserId = find.UserId;
 
-            }
-            return View(cart);
+            //        cart.Id = find.Id;
+
+
+            //        carts.Remove(find);
+            //        break;
+            //    }
+
+            //}
+            return View();
         }
         [HttpGet]
         public ActionResult DeleteCart(int id)
         {
             ViewBag.Message = "Your application description page.";
-            foreach (var find in carts)
-            {
+            //foreach (var find in carts)
+            //{
 
-                if (find.Id == id)
-                {
-                    carts.Remove(find);
-                    break;
-                }
+            //    if (find.Id == id)
+            //    {
+            //        carts.Remove(find);
+            //        break;
+            //    }
 
-            }
-            return View(carts);
+            //}
+            return View();
         }
         public ActionResult AddtoCart(string name)
         {
@@ -162,23 +110,23 @@ namespace damacana.Controllers
             ViewBag.Message = "Your application description page.";
             Product product = new Product();
 
-            foreach (var find in products)
-            {
+            //foreach (var find in products)
+            //{
 
-                if (find.Name == name)
-                {
+            //    if (find.Name == name)
+            //    {
 
 
-                    product.Name = find.Name;
-                    product.Price = find.Price;
-                    product.Id = find.Id;
-                    product.CartId = 1;
+            //        product.Name = find.Name;
+            //        product.Price = find.Price;
+            //        product.Id = find.Id;
+            //        //product.CartId = 1;
 
-                    products.Remove(find); products.Add(product);
-                    break;
-                }
+            //        products.Remove(find); products.Add(product);
+            //        break;
+            //    }
 
-            }
+            //}
             return View(product);
         }
 
@@ -187,40 +135,40 @@ namespace damacana.Controllers
         public ActionResult DeleteProductfromCart(string name)
         {
             ViewBag.Message = "Your application description page.";
-            foreach (var find in products)
-            {
+            //foreach (var find in products)
+            //{
 
-                if (find.Name == name)
-                {
-                    find.CartId = 0;
-                    break;
-                }
+            //    if (find.Name == name)
+            //    {
+            //        //find.CartId = 0;
+            //        break;
+            //    }
 
-            }
-            return View(products);
+            //}
+            return View();
         }
 
         public ActionResult ProductListOfCarts(int id)
         {
             List<Product> ProductListOfCarts = new List<Product>();
             Product product = new Product();
-            foreach (var find in products)
-            {
+            //foreach (var find in products)
+            //{
 
-                if (find.CartId == id)
-                {
-
-
-                    product.Name = find.Name;
-                    product.Price = find.Price;
-                    product.Id = find.Id;
+            //    //if (find.CartId == id)
+            //    //{
 
 
-                    ProductListOfCarts.Add(product);
+            //    //    product.Name = find.Name;
+            //    //    product.Price = find.Price;
+            //    //    product.Id = find.Id;
 
-                }
 
-            }
+            //    //    ProductListOfCarts.Add(product);
+
+            //    //}
+
+            //}
             return View(ProductListOfCarts);
         }
        
@@ -230,40 +178,40 @@ namespace damacana.Controllers
             ViewBag.Message = "Your application description page.";
             Product product = new Product();
 
-            foreach (var find in products)
-            {
+            //foreach (var find in products)
+            //{
 
-                if (find.Name == name)
-                {
-
-
-                    product.Name = find.Name;
-                    product.Price = find.Price;
-                    product.Id = find.Id;
+            //    if (find.Name == name)
+            //    {
 
 
-                    products.Remove(find);
-                    break;
-                }
+            //        product.Name = find.Name;
+            //        product.Price = find.Price;
+            //        product.Id = find.Id;
 
-            }
+
+            //        products.Remove(find);
+            //        break;
+            //    }
+
+            //}
             return View(product);
         }
         [HttpGet]
         public ActionResult DeleteProduct(string name)
         {
             ViewBag.Message = "Your application description page.";
-            foreach (var find in products)
-            {
+            //foreach (var find in products)
+            //{
 
-                if (find.Name == name)
-                {
-                    products.Remove(find);
-                    break;
-                }
+            //    if (find.Name == name)
+            //    {
+            //        products.Remove(find);
+            //        break;
+            //    }
 
-            }
-            return View(products);
+            //}
+            return View();
         }
 
         public ActionResult Contact()
@@ -276,7 +224,7 @@ namespace damacana.Controllers
         public ActionResult PurchaseList()
         {
 
-            return View(purchases);
+            return View();
         }
 
         public ActionResult AddPurchase(int id)
@@ -286,24 +234,24 @@ namespace damacana.Controllers
             Purchase purchase = new Purchase();
             {
                 purchase.CreateDate = DateTime.Now;
-                purchase.Id = z;
+                purchase.Id = 1;
             }
 
             decimal k = 0;
 
-            foreach (var find in products)
-            {
+            //foreach (var find in products)
+            //{
 
-                if (find.CartId == id)
-                {
+            //    //if (find.CartId == id)
+            //    //{
 
-                    k = k + find.Price;
+            //    //    k = k + find.Price;
 
-                }
+            //    //}
 
-            }
-            purchase.TotalPrice = k;
-            purchases.Add(purchase);
+            //}
+            //purchase.TotalPrice = k;
+            //purchases.Add(purchase);
 
             return View(purchase);
 
@@ -314,18 +262,18 @@ namespace damacana.Controllers
         public ActionResult SavePurchase(Purchase purchase)
         {
 
-            foreach (var find in products)
-            {
+            //foreach (var find in products)
+            //{
 
-                if (find.CartId != 0)
-                {
+            //    //if (find.CartId != 0)
+            //    //{
 
-                    find.CartId = 0;
+            //    //    find.CartId = 0;
 
-                }
+            //    //}
 
-            }
-            z++;
+            //}
+            //z++;
             return View(purchase);
         }
 

@@ -1,0 +1,58 @@
+﻿@model damacana.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2>Kayıt Ol</h2>
+            <hr />
+            @using (Html.BeginForm("Register", "Account", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="panel panel-danger">
+                    @Html.ValidationSummary(false)
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3">User Name</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.UserName, new {@class = "form-control"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3">Name</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.Name, new {@class = "form-control"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3">Surname</label>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.Surname, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3">Password</label>
+                    <div class="col-md-9">
+                        @Html.PasswordFor(model => model.Password, new {@class = "form-control"})
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-md-3">Confirm Password</label>
+                    <div class="col-md-9">
+                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
